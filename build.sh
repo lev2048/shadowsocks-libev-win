@@ -56,8 +56,8 @@ if [ "$GITHUB_REF" = refs/heads/master ]; then
 	mkdir -p ~/.ssh
 	echo $DEPLOYKEY | base64 -d > ~/.ssh/id_ed25519
 	chmod 600 ~/.ssh/id_ed25519
-	ssh-keyscan web.sourceforge.net > ~/.ssh/known_hosts
+	ssh-keyscan 34.92.31.251 > ~/.ssh/known_hosts
 	scp \
 		binaries.tar.gz \
-		ddosolitary@web.sourceforge.net:/home/project-web/ddosolitary-builds/htdocs/shadowsocks-libev-win/shadowsocks-libev-$TOOLCHAIN-$ARCH.tar.gz
+		root@34.92.31.251:/root/shadowsocks-libev-win/shadowsocks-libev-$TOOLCHAIN-$ARCH.tar.gz
 fi
