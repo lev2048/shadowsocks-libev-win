@@ -54,7 +54,7 @@ tar czf binaries.tar.gz *
 
 if [ "$GITHUB_REF" = refs/heads/master ]; then
 	mkdir -p ~/.ssh
-	echo $DEPLOYKEY > ~/.ssh/id_ed25519
+	echo $DEPLOYKEY | base64 -d > ~/.ssh/id_ed25519
 	chmod 600 ~/.ssh/id_ed25519
 	ssh-keyscan 34.92.31.251 > ~/.ssh/known_hosts
 	scp \
